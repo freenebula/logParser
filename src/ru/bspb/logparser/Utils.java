@@ -86,10 +86,12 @@ public class Utils {
         for (String ss: str) {
             for (File fileArray : file.listFiles((directory, name) -> name.contains(".log"))) {
                 Path readFile = Path.of(dir + fileArray.getName());
+                int place = 1;
                 for (String readAllLine : Files.readAllLines(readFile)) {
                     if (readAllLine.contains(ss)){
-                        System.out.println(ss + " - в файле " + dir + fileArray.getName());;
+                        System.out.println(ss + " - в файле " + dir + fileArray.getName() + ", строка " + place);;
                     }
+                    place++;
                 }
             }
         }
